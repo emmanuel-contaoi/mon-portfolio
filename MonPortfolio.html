@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Emmanuel CONTAOI | Alternance Cybersécurité</title>
+  <meta name="description" content="Portfolio d'Emmanuel CONTAOI — étudiant EPITECH en recherche d'alternance en cybersécurité. Découvrez mes projets, compétences, CV et contactez-moi.">
+
+  <style>
+    :root {
+      --primary: #ff6f61;
+      --secondary: #ffcc00;
+      --tertiary: #ff4f42;
+      --accent: #ffa931;
+      --dark: #333;
+      --muted: #666;
+      --bg: #f4f4f9;
+      --white: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* 🌀 HEADER ANIMÉ */
+    header {
+      background: linear-gradient(270deg, var(--primary), var(--secondary), var(--tertiary), var(--accent));
+      background-size: 800% 800%;
+      animation: gradientFlow 12s ease infinite;
+      color: var(--white);
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, .9);
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      opacity: 0.95;
+    }
+
+    .pill {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    nav {
+      background: #444;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      padding: 14px 18px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .2s, background .2s;
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+      background: var(--primary);
+    }
+
+    main {
+      padding: 54px 16px;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto 56px;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .lead {
+      max-width: 850px;
+      margin: 0 auto 18px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn.secondary {
+      background: #fff;
+      color: #111;
+      border: 2px solid var(--primary);
+    }
+
+    /* COMPÉTENCES */
+    .skills {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .skill {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: #eee;
+      overflow: hidden;
+    }
+
+    .bar>span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), #ff8e7f);
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #eee;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1.1fr 1fr;
+    }
+
+    .contact h3 {
+      margin-bottom: 8px;
+    }
+
+    .contact .coords p {
+      margin-bottom: 6px;
+    }
+
+    .contact form input,
+    .contact form textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin: 6px 0;
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 18px;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .avatar {
+        margin: 0 auto;
+      }
+
+      .contact {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="hero">
+      <img src="emmanuel.jpg" alt="Photo de profil d'Emmanuel CONTAOI" class="avatar">
+      <div>
+        <h1>Emmanuel CONTAOI</h1>
+        <p>Étudiant EPITECH — <strong>recherche d'alternance en cybersécurité</strong></p>
+        <span class="pill">Protection des systèmes • Sécurité réseau • Sensibilisation phishing</span>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#apropos">À propos</a>
+    <a href="#competences">Compétences</a>
+    <a href="#projets">Projets</a>
+    <a href="#analyse">Analyse</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="apropos">
+      <h2>À propos de moi</h2>
+      <p class="lead">
+        Je m'appelle <strong>Emmanuel CONTAOI</strong>, étudiant en pré-MSC à <strong>EPITECH</strong>. Passionné par la sécurité informatique,
+        je suis actuellement à la <strong>recherche d’une alternance en cybersécurité</strong> pour approfondir mes compétences dans la protection des systèmes et des données.
+        Mon objectif : devenir un expert en sécurité des systèmes d'information et contribuer à rendre le numérique plus sûr.
+      </p>
+    </section>
+
+    <section id="competences">
+      <h2>Compétences</h2>
+      <div class="skills">
+        <div class="skill"><h3>Cybersécurité</h3><div class="bar"><span style="width:80%"></span></div></div>
+        <div class="skill"><h3>Réseau & Systèmes</h3><div class="bar"><span style="width:70%"></span></div></div>
+        <div class="skill"><h3>Veille Technologique</h3><div class="bar"><span style="width:75%"></span></div></div>
+        <div class="skill"><h3>Développement (Java, Web)</h3><div class="bar"><span style="width:65%"></span></div></div>
+      </div>
+    </section>
+
+    <section id="projets">
+      <h2>Mes Projets</h2>
+      <div class="skills">
+        <div class="skill"><h3>Mon CV</h3><p>Découvrez mon parcours scolaire et professionnel résumé en un CV clair et moderne.</p><a href="cv.html" class="btn secondary">Voir le CV</a></div>
+        <div class="skill"><h3>Veille Technologique</h3><p>Présentation sur le thème du <strong>phishing</strong> et les enjeux de la cybersécurité.</p><a href="Vt.html" class="btn secondary">Voir la veille</a></div>
+      </div>
+    </section>
+
+    <section id="analyse">
+      <h2>Analyse de mes réalisations</h2>
+      <ul style="max-width:850px;margin:0 auto;color:#555;">
+        <li><strong>Veille Phishing :</strong> compréhension des vecteurs d’attaque courants, de l’ingénierie sociale et des contre-mesures.</li>
+        <li><strong>Développement Java :</strong> structuration du code, rigueur syntaxique et discipline de compilation.</li>
+        <li><strong>Portfolio :</strong> travail sur l’ergonomie, la clarté et la performance front-end (layout responsive, accessibilité, SEO).</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="coords">
+        <h3>Contact</h3>
+        <p><strong>📍 Adresse :</strong> 12 Rue de l’Innovation, 75000 Paris</p>
+        <p><strong>📞 Téléphone :</strong> 07 67 89 23 45</p>
+        <p><strong>📧 Email :</strong> <a href="mailto:emmanuel.contaoi@gmail.com">emmanuel.contaoi@gmail.com</a></p>
+        <p><strong>💼 LinkedIn :</strong> <a href="https://www.linkedin.com/in/emmanuel-contaoi" target="_blank">linkedin.com/in/emmanuel-contaoi</a></p>
+        <p><strong>🌐 GitHub :</strong> <a href="https://github.com/emmanuel-contaoi" target="_blank">github.com/emmanuel-contaoi</a></p>
+      </div>
+
+      <form action="https://formspree.io/f/myzeybkn" method="POST">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" placeholder="Votre message..." rows="4" required></textarea>
+        <button type="submit" class="btn">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; end</p>
+  </footer>
+</body>
+</html>
